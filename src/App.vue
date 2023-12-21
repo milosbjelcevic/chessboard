@@ -9,14 +9,14 @@ function generateChessboard() {
   const chessboard = [];
   const letters = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
-  for (let i = 0; i < rows; i++) {
-    const row = [];
-    for (let j = 0; j < cols; j++) {
-      row.push({ id: `${letters[j]}${i + 1}`, clicked: false });
+  for (let i = 0; i < cols; i++) {
+    const column = [];
+    for (let j = 0; j < rows; j++) {
+      column.push({ id: `${letters[i]}${8 - j}`, clicked: false });
     }
-    chessboard.push(row);
+    chessboard.push(column);
   }
-
+  console.log(chessboard);
   return chessboard;
 }
 
@@ -46,8 +46,8 @@ const isOdd = computed(() => {
           @click="handleSquareClick(rowIndex, colIndex)"
           :class="{
             clicked: square.clicked,
-            odd: isOdd(rowIndex, colIndex),
-            even: !isOdd(rowIndex, colIndex),
+            odd: !isOdd(rowIndex, colIndex),
+            even: isOdd(rowIndex, colIndex),
           }"
         ></div>
       </div>
