@@ -2,7 +2,6 @@
 import { ref, computed } from "vue";
 const clickedSquares = ref([]);
 const chessboard = ref(generateChessboard());
-
 function generateChessboard() {
   const rows = 8;
   const cols = 8;
